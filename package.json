@@ -1,0 +1,28 @@
+{
+  "name": "mtg_binder",
+  "version": "1.0.0",
+  "description": "Beginnings of an MTG trading app. Currently just searching and displaying results from \"Deckbrew\" API.",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "consolidate": "^0.13.1",
+    "express": "^4.13.3",
+    "swig": "^1.4.2",
+    "request": "^2.64.0",
+    "elasticsearch": "^8.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chasestarr/mtg_binder.git"
+  },
+  "author": "Chase Starr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chasestarr/mtg_binder/issues"
+  },
+  "homepage": "https://github.com/chasestarr/mtg_binder#readme"
+}
