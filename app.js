@@ -43,7 +43,7 @@ app.get('/', function(req,res,next){
     			cols : col,
     			rows : row
     		};
-			res.render('Index', indexTem);
+			res.render('index', indexTem);
   		}
 	});
 });
