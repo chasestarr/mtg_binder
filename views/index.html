@@ -1,29 +1,54 @@
-<h2>Search for Card Name</h2>
+<!DOCTYPE html>
+<html lang="en-US">
+<title>MTG-Binder</title>
+<head>
+<!-- <link rel="stylesheet" href="./views/style.css"> -->
 
-<form>
-  Card name:<br>
-  <input type="text" name="name">
-</form>
+<style type="text/css">
+  table, th, td {
+    /*border: 1px solid black;
+    border-collapse: collapse;*/
+  }
+  table{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  th, td {
+    padding: .3em;
+  }
+  #heading{
+    padding-left: 3em;
+  }
+</style>
+</head>
+<body>
+  <div id="heading">
+    <a href ='/'>Home</a>
+    <h2>Search for Card Name</h2>
 
-<br>
+    <form>
+      Card name:<br>
+      <input type="text" name="name">
+    </form>
+  </div>
 
-<table width="width:10em">
-{% for card in cardsJSON %}
-  <tr{% if loop.first %} class="first"{% endif %}>
-  	<!-- <td>
-  	{{card.name}}
-  	<br>
-  	<a href ={{card.store_url}}>Store Link</a>
-  	<br>
-  	<a href ={{card.url}}>API Link</a>
-  	</td> -->
-  	<td>
-  		{% if card.editions[0].multiverse_id == 0 %}
-  			<a href={{card.store_url}}><img src={{card.editions[1].image_url}} width="223" height="310"></a>
-  		{% else %}
-  			<a href={{card.store_url}}><img src={{card.editions[0].image_url}} width="223" height="310"></a>
-  		{% endif %}
-    </td>
-  </tr>
-</table>
+  <br>
 
+  <table>
+  {% for card in cardsJSON %}
+  {% if loop.index % 5 === 1 %}
+    <tr>
+  {% endif%}
+    	<td>
+        {% if card.editions[0].multiverse_id == 0 %}
+          <a href={{card.store_url}}><img src={{card.editions[1].image_url}} width="223" height="310"></a>
+        {% else %}
+          <a href={{card.store_url}}><img src={{card.editions[0].image_url}} width="223" height="310"></a>
+        {% endif %}
+      </td>
+  {% if loop.index % 5 === "1" %}
+    </tr>
+  {% endif%}  
+  {% endfor %}
+  </table>
+</body>

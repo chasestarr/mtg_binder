@@ -31,17 +31,9 @@ app.get('/', function(req,res,next){
 	request(searchTerm, function (error, response, cards) {
   		if (!error && response.statusCode == 200) {
   			var cardsJSONObj = JSON.parse(cards);
-  			var col = 4;
-  			var row = col % cardsJSONObj.length;
-  			// console.log(cardsJSONObj.length);
-  			// console.log(row);
-  			var modresult = 6 % 19;
-  			console.log(modresult);
 
     		indexTem = {
-    			cardsJSON : cardsJSONObj,
-    			cols : col,
-    			rows : row
+    			cardsJSON : cardsJSONObj
     		};
 			res.render('index', indexTem);
   		}
