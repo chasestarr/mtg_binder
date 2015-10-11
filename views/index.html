@@ -1,31 +1,8 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<title>MTG-Binder</title>
-<head>
-<!-- <link rel="stylesheet" href="./views/style.css"> -->
+{% extends 'layout.html' %}
 
-<style type="text/css">
-  table, th, td {
-    /*border: 1px solid black;
-    border-collapse: collapse;*/
-  }
-  table{
-    margin-left: auto;
-    margin-right: auto;
-  }
-  th, td {
-    padding: .3em;
-  }
-  #heading{
-    padding-left: 3em;
-  }
-</style>
-</head>
-<body>
-  <div id="heading">
-    <a href ='/'>Home</a>
+{% block body%}
+  <div id="heading">  
     <h2>Search for Card Name</h2>
-
     <form>
       Card name:<br>
       <input type="text" name="name">
@@ -36,7 +13,7 @@
 
   <table>
   {% for card in cardsJSON %}
-  {% if loop.index % 5 === 1 %}
+  {% if loop.index % 4 === 1 %}
     <tr>
   {% endif%}
     	<td>
@@ -46,9 +23,9 @@
           <a href={{card.store_url}}><img src={{card.editions[0].image_url}} width="223" height="310"></a>
         {% endif %}
       </td>
-  {% if loop.index % 5 === "1" %}
+  {% if loop.index % 4 === "1" %}
     </tr>
   {% endif%}  
   {% endfor %}
   </table>
-</body>
+{% endblock %}
